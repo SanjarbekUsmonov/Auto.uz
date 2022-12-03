@@ -1,6 +1,6 @@
-<!-- <template>
+<template>
   <div>
-    text boshlanishi sarlavha
+    <!-- text boshlanishi sarlavha -->
     <div class="text row  items-end bg-white">
        <div>
         <div class="text__title text-h4 text-weight-bold">
@@ -11,7 +11,7 @@
         </div>
        </div>
     </div>
-     text tugashi sarlavha
+     <!-- text tugashi sarlavha -->
     <div class="container q-mt-lg row   justify-between">
         <div class="make bg-grey-3 row  shadow-22 justify-center" v-for="i in 10" :key="i">
             <div class="make__img">
@@ -51,4 +51,4 @@
   width: 100%;
   height: 100px;
 }
-</style> -->
+</style>
