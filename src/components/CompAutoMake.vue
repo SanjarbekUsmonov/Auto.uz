@@ -6,12 +6,14 @@
         <div class="text__title text-h4 text-weight-bold">
           Select auto parts by make
         </div>
-         <div class="text__discription text-subtitle2">
+         <div class="text__discription text-subtitle2 text-grey">
             View a selection of our most popular makes
         </div>
        </div>
     </div>
      <!-- text tugashi sarlavha -->
+
+     <!-- markalar boshlanishi -->
     <div class="container q-mt-lg row   justify-between">
         <div class="make bg-grey-3 row  shadow-10 justify-center" v-for="i in 10" :key="i">
             <div class="make__img">
@@ -22,7 +24,7 @@
             </div>
         </div>
     </div>
-
+    <!-- markalar tugashi -->
   </div>
 </template>
 
@@ -45,6 +47,7 @@
 }
 .make:hover{
   cursor: pointer;
+  opacity: 0.8;
 }
 .make__img{
   width: 60px;
