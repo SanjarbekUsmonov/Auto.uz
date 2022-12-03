@@ -13,7 +13,7 @@
     </div>
      <!-- text tugashi sarlavha -->
     <div class="container q-mt-lg row   justify-between">
-        <div class="make bg-grey-3 row  shadow-22 justify-center" v-for="i in 10" :key="i">
+        <div class="make bg-grey-3 row  shadow-10 justify-center" v-for="i in 10" :key="i">
             <div class="make__img">
               <q-img src="https://images.satu.kz/68605191_w640_h640_mersedes-slk-klass.jpg" alt=""/>
             </div>
@@ -42,6 +42,9 @@
   height: 100px;
   padding: 10px;
 
+}
+.make:hover{
+  cursor: pointer;
 }
 .make__img{
   width: 60px;
