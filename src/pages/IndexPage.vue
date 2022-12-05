@@ -4,6 +4,7 @@
      <CompCarusel/>
      <CompAutoMake/>
      <CompNameCar/>
+     <CompCarChoices/>
   </div>
 </template>
 
@@ -12,8 +13,9 @@ import CompCarSimiller from 'src/components/CompCarSimiller.vue'
 import CompCarusel from 'src/components/CompCarusel.vue'
 import CompAutoMake from 'src/components/CompAutoMake.vue'
 import CompNameCar from 'src/components/CompNameCar.vue'
+import CompCarChoices from 'src/components/CompCarChoices.vue'
   export default {
-  components: { CompCarSimiller, CompCarusel, CompAutoMake, CompNameCar },
+  components: { CompCarSimiller, CompCarusel, CompAutoMake, CompNameCar,CompCarChoices },
 
   }
 </script>

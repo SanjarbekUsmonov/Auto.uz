@@ -1,10 +1,11 @@
 <template>
   <div class="q-mt-lg">
     <div class="conatiner">
-      <div class="contend row justify-between">
+      <div class="contend q-gutter-md  row justify-between">
         <!-- car name boshlanishi -->
         <div class="contend__car__much" v-for="i in 5" :key="i">
-          <ul>
+          <div>
+            <ul>
             <li class="text-body1">
               Mersedes <span class="text-grey text-body1">{{ much }}</span>
             </li>
@@ -36,6 +37,7 @@
               Mersedes <span class="text-grey text-body1">{{ much }}</span>
             </li>
           </ul>
+          </div>
         </div>
          <!-- car name tugashi -->
       </div>
@@ -60,7 +62,7 @@ export default {
 }
 .contend {
   width: 80%;
-  height: 400px;
+  height: auto;
   margin: 0 auto;
   /* background: red; */
 }

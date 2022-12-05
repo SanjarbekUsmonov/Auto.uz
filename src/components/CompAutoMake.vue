@@ -14,7 +14,7 @@
      <!-- text tugashi sarlavha -->
 
      <!-- markalar boshlanishi -->
-    <div class="container q-mt-lg row   justify-between">
+    <div class="container q-mt-lg q-gutter-md  row justify-between">
         <div class="make bg-grey-3 row  shadow-10 justify-center" v-for="i in 10" :key="i">
             <div class="make__img">
               <q-img src="https://images.satu.kz/68605191_w640_h640_mersedes-slk-klass.jpg" alt=""/>
