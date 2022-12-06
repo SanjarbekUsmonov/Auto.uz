@@ -1,17 +1,25 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
-  </q-page>
+  <div>
+     <CompCarSimiller/>
+     <CompCarusel/>
+     <CompAutoMake/>
+     <CompNameCar/>
+     <CompCarChoices/>
+  </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import CompCarSimiller from 'src/components/CompCarSimiller.vue'
+import CompCarusel from 'src/components/CompCarusel.vue'
+import CompAutoMake from 'src/components/CompAutoMake.vue'
+import CompNameCar from 'src/components/CompNameCar.vue'
+import CompCarChoices from 'src/components/CompCarChoices.vue'
+  export default {
+  components: { CompCarSimiller, CompCarusel, CompAutoMake, CompNameCar,CompCarChoices },
 
-export default defineComponent({
-  name: 'IndexPage'
-})
+  }
 </script>
+
+<style  scoped>
+
+</style>
