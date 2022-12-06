@@ -6,6 +6,7 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
       { path: 'detail', component: () => import('pages/ProductDetail.vue') },
+      { path: '/car', component: () => import('pages/CarMarket.vue') },
     ]
   },
 
