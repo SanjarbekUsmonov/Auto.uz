@@ -4,20 +4,21 @@
       <div class="container">
           <div class="content">
             <CompCarTobuy/>
-            <CompCarbuy/>
+            <div class="mt-50px">
+              <CarCard/>
+            </div>
           </div>
+          
       </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import CompCarSimiller from 'src/components/CompCarSimiller.vue';
 import CompCarTobuy from '../components/car-market/CompCarTobuy.vue';
-import CompCarbuy from '../components/car-market/CompCarbuy.vue'
+import CarCard from 'src/components/car-market/CarCard.vue';
 
-  export default {
-    components: { CompCarSimiller,CompCarTobuy,CompCarbuy }
-}
+  
 </script>
 
 <style  scoped>
@@ -25,8 +26,7 @@ import CompCarbuy from '../components/car-market/CompCarbuy.vue'
   width: 100%;
 }
 .content{
-  width: 70%;
-  height: auto;
-  margin: 0 auto;
+  margin: 15px;
+
 }
 </style>
