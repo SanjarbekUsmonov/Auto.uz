@@ -3,16 +3,19 @@
     <div class="title text-h4 text-weight-bold">
         Choices
     </div>
-      <div class="container q-mt-md q-py-md q-gutter-md row wrap justify-between ">
-          <div class="card " v-for="i in 10" :key="i">
+      <div>
+        <Suspense>
+          <card-component/>
 
-          </div>
+        </Suspense>
       </div>
   </div>
 </template>
 
 <script>
+import cardComponent from './cardComponent.vue'
   export default {
+  components: { cardComponent },
 
   }
 </script>

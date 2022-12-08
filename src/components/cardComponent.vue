@@ -1,14 +1,14 @@
 <template>
     <div class="container page-wrapper">
   <div class="page-inner">
-    <div class="row">
-      <div class="el-wrapper">
+    <div class="row" >
+      <div class="el-wrapper" v-for="car in cars" :key="car.car_name" >
         <div class="box-up">
           <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
           <div class="img-info">
             <div class="info-inner">
-              <span class="p-name">I feel like Pablo</span>
-              <span class="p-company">Yeezy</span>
+              <span class="p-name">{{car.car_name}}</span>
+              <span class="p-company">{{car.car_name}}</span>
             </div>
             <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
           </div>
@@ -27,16 +27,32 @@
           </a>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
 </template>
+<script setup>
+import axios  from 'axios';
+import { ref, onMounted, onBeforeMount } from 'vue'
+let cars = ref([])
+onBeforeMount(() => {
+  getCars()
+})
+let getCars = async ()=>{
+  try{
+    let res = await axios.get('http://autouz.pythonanywhere.com/productlar/')
+    cars.value = res.data
+   
+  }
+  catch(err){
+    console.log(err);
+  }
+}
+</script>
+
 
 <style scoped>
-body,
-html {
-  height: 100%;
-}
 
 .d-flex {
   display: -webkit-box;
@@ -60,9 +76,6 @@ html {
   align-items: center;
 }
 
-body {
-  background-color: #f7f7f7;
-}
 
 .page-wrapper {
   height: 100%;
