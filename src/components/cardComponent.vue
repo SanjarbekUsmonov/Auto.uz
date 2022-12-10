@@ -27,7 +27,7 @@
           </a>
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>
@@ -43,7 +43,7 @@ let getCars = async ()=>{
   try{
     let res = await axios.get('http://autouz.pythonanywhere.com/productlar/')
     cars.value = res.data
-   
+
   }
   catch(err){
     console.log(err);
