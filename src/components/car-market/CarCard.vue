@@ -1,5 +1,5 @@
 <template >
-  <div v-for="cars in 5" :key="cars">
+  <div v-for="cars in 5" :key="cars" class="q-mt-md">
     <div class=" p-15px card-car">
       <div class="w-30pr car__carusel">
         <div class="car__title-tel">
