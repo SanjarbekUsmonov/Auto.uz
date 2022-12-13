@@ -1,8 +1,8 @@
 <template >
-  <div v-for="i in 5" :key="i">
+  <div v-for="cars in 5" :key="cars" class="q-mt-md">
     <div class=" p-15px card-car">
       <div class="w-30pr car__carusel">
-        <div class="car__title-tel"> 
+        <div class="car__title-tel">
             <div class="w-100pr fs-16px">
                 <div class=" car__name">Infiniti Q30 , 2017</div>
                 <div class="row justify-between mb-10px">
@@ -94,13 +94,27 @@
         </div>
       </div>
     </div>
-   
+
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import axios from "axios";
+import { ref,onBeforeMount } from "vue";
 const slide = ref(1);
+const cars = ref([]);
+onBeforeMount(function(){
+  getCars()
+})
+let getCars = async function(){
+  try{
+    let res = await axios. get('http://autouz.pythonanywhere.com/productlar/')
+    cars.value = res.data
+  }
+  catch(err){
+    console.log(err + 'xato bor');
+  }
+}
 </script>
 
 <style lang="css" scoped>
