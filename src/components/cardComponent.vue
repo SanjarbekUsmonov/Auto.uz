@@ -43,11 +43,12 @@ let getCars = async ()=>{
   try{
     let res = await axios.get('http://autouz.pythonanywhere.com/productlar/')
     cars.value = res.data
-   
+    if(cars.value.length > 6) return cars.value.length = 6
   }
   catch(err){
     console.log(err);
   }
+  
 }
 </script>
 
