@@ -1,5 +1,31 @@
 import { store } from 'quasar/wrappers'
-import { createPinia } from 'pinia'
+import { createPinia, defineStore } from 'pinia'
+import axios from 'axios'
+
+export const useStore = defineStore('store',{
+  state: ()=>({
+    cars: [],
+    limited: []
+  }),
+  actions:{
+    async GET_CARS(){
+      try{
+        const cars_api = await axios.get('http://autouz.pythonanywhere.com/productlar/')
+        this.cars = cars_api.data
+        this.limited = JSON.parse(JSON.stringify(this.cars.reverse()))
+        this.limited.length = 4
+        console.log(this.cars);
+        console.log(this.limited);
+      }
+      catch(err){
+        console.log(err);
+      }
+    },
+    SET_LIMIT(){
+      this.cars.length = 6
+    }
+  }
+})
 
 /*
  * If not building with SSR mode, you can
