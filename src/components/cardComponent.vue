@@ -34,9 +34,6 @@
 <script setup>
 import {useCounterStore} from 'src/stores/index'
 import { ref,  onBeforeMount } from 'vue'
-
-// let counter = 0
-
 const store = useCounterStore()
 store.getApi()
 </script>
