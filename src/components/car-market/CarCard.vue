@@ -94,7 +94,7 @@
         </div>
       </div>
     </div>
-    {{ store.cars }}
+
   </div>
 </template>
 
