@@ -1,42 +1,11 @@
 <template>
   <div class="q-mt-lg">
     <div class="conatiner">
-      <div class="contend q-gutter-md  row justify-between">
+      <div class="content row justify-between">
         <!-- car name boshlanishi -->
-        <div class="contend__car__much" v-for="i in 5" :key="i">
-          <div>
-            <ul>
-            <li class="text-body1">
-              Mersedes <span class="text-grey text-body1">{{ much }}</span>
-            </li>
-            <li class="text-body1">
-              Mersedes <span class="text-grey text-body1">{{ much }}</span>
-            </li>
-            <li class="text-body1">
-              Mersedes <span class="text-grey text-body1">{{ much }}</span>
-            </li>
-            <li class="text-body1">
-              Mersedes <span class="text-grey text-body1">{{ much }}</span>
-            </li>
-            <li class="text-body1">
-              Mersedes <span class="text-grey text-body1">{{ much }}</span>
-            </li>
-            <li class="text-body1">
-              Mersedes <span class="text-grey text-body1">{{ much }}</span>
-            </li>
-            <li class="text-body1">
-              Mersedes <span class="text-grey text-body1">{{ much }}</span>
-            </li>
-            <li class="text-body1">
-              Mersedes <span class="text-grey text-body1">{{ much }}</span>
-            </li>
-            <li class="text-body1">
-              Mersedes <span class="text-grey text-body1">{{ much }}</span>
-            </li>
-            <li class="text-body1">
-              Mersedes <span class="text-grey text-body1">{{ much }}</span>
-            </li>
-          </ul>
+        <div class="content__car__much w-100pr row justify-betwen" >
+          <div class="w-19pr text-center mt-5px" v-for="category , i in store.categories" :key="i">
+            {{ category.category_name }} <span class=" text-grey"> {{ category.mahsulot.length }} </span>
           </div>
         </div>
          <!-- car name tugashi -->
@@ -45,14 +14,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      much: 200,
-    };
-  },
-};
+<script setup>
+import {useCounterStore} from 'src/stores/index'
+const store = useCounterStore()
+store.getApiCategory()
 </script>
 
 <style  scoped>
@@ -60,8 +25,8 @@ export default {
   width: 100%;
   height: auto;
 }
-.contend {
-  width: 80%;
+.content {
+  width: 90%;
   height: auto;
   margin: 0 auto;
   /* background: red; */
@@ -74,4 +39,5 @@ ul li:hover{
   cursor: pointer;
   color: red;
 }
+
 </style>

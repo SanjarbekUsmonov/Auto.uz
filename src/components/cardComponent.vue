@@ -33,9 +33,10 @@
 </template>
 <script setup>
 import {useCounterStore} from 'src/stores/index'
-import { ref,  onBeforeMount } from 'vue'
+// import { ref,  onBeforeMount } from 'vue'
 const store = useCounterStore()
 store.getApi()
+
 </script>
 
 

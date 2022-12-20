@@ -6,6 +6,7 @@ import axios from 'axios';
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     cars: [],
+    categories: [],
   }),
 
   actions: {
@@ -17,6 +18,15 @@ export const useCounterStore = defineStore('counter', {
         console.log(error);
        }
     },
+
+    async getApiCategory(){
+      try {
+       let res = await axios.get("http://autouz.pythonanywhere.com/categoriya/")
+       this.categories = res.data
+      } catch (error) {
+       console.log(error);
+      }
+   },
   },
 
   getters: {
