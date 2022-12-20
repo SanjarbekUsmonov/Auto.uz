@@ -6,7 +6,6 @@ import axios from 'axios';
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     cars: [],
-    counter: 0
   }),
 
   actions: {
