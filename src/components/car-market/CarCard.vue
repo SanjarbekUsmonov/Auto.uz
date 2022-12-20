@@ -94,27 +94,33 @@
         </div>
       </div>
     </div>
-
+    {{ store.cars }}
   </div>
 </template>
 
 <script setup>
-import axios from "axios";
-import { ref,onBeforeMount } from "vue";
-const slide = ref(1);
-const cars = ref([]);
-onBeforeMount(function(){
-  getCars()
-})
-let getCars = async function(){
-  try{
-    let res = await axios. get('http://autouz.pythonanywhere.com/productlar/')
-    cars.value = res.data
-  }
-  catch(err){
-    console.log(err + 'xato bor');
-  }
-}
+import {useCounterStore}  from 'src/stores/index'
+const store = useCounterStore ()
+store.getApi()
+
+
+
+// import axios from "axios";
+// import { ref,onBeforeMount } from "vue";
+// const slide = ref(1);
+// const cars = ref([]);
+// onBeforeMount(function(){
+//   getCars()
+// })
+// let getCars = async function(){
+//   try{
+//     let res = await axios. get('http://autouz.pythonanywhere.com/productlar/')
+//     cars.value = res.data
+//   }
+//   catch(err){
+//     console.log(err + 'xato bor');
+//   }
+// }
 </script>
 
 <style lang="css" scoped>

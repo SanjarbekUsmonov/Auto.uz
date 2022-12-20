@@ -1,8 +1,8 @@
 <template>
-    <div class="container page-wrapper">
+  <div class="container page-wrapper">
   <div class="page-inner">
     <div class="row" >
-      <div class="el-wrapper" v-for="car in cars" :key="car.car_name" >
+      <div class="el-wrapper" v-for="car in store.cars" :key="car.car_name" >
         <div class="box-up">
           <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
           <div class="img-info">
@@ -27,28 +27,18 @@
           </a>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 </template>
 <script setup>
-import axios  from 'axios';
-import { ref, onMounted, onBeforeMount } from 'vue'
-let cars = ref([])
-onBeforeMount(() => {
-  getCars()
-})
-let getCars = async ()=>{
-  try{
-    let res = await axios.get('http://autouz.pythonanywhere.com/productlar/')
-    cars.value = res.data
+import {useCounterStore} from 'src/stores/index'
+import { ref,  onBeforeMount } from 'vue'
 
-  }
-  catch(err){
-    console.log(err);
-  }
-}
+// let counter = 0
+
+const store = useCounterStore()
+store.getApi()
 </script>
 
 
