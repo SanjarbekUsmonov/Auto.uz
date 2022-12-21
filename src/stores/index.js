@@ -1,40 +1,40 @@
 import { store } from 'quasar/wrappers'
-import { createPinia, defineStore } from 'pinia'
-import axios from 'axios'
+import { createPinia } from 'pinia'
+import { defineStore } from 'pinia';
+import axios from 'axios';
 
-export const useStore = defineStore('store',{
-  state: ()=>({
+export const useCounterStore = defineStore('counter', {
+  state: () => ({
     cars: [],
-    limited: []
+    categories: [],
   }),
-  actions:{
-    async GET_CARS(){
-      try{
-        const cars_api = await axios.get('http://autouz.pythonanywhere.com/productlar/')
-        this.cars = cars_api.data
-        this.limited = JSON.parse(JSON.stringify(this.cars.reverse()))
-        this.limited.length = 4
-        console.log(this.cars);
-        console.log(this.limited);
-      }
-      catch(err){
-        console.log(err);
-      }
-    },
-    SET_LIMIT(){
-      this.cars.length = 6
-    }
-  }
-})
 
-/*
- * If not building with SSR mode, you can
- * directly export the Store instantiation;
- *
- * The function below can be async too; either use
- * async/await or return a Promise which resolves
- * with the Store instance.
- */
+
+  actions: {
+    async getApi(){
+       try {
+        let res = await axios.get("http://autouz.pythonanywhere.com/productlar/")
+        this.cars = res.data
+       } catch (error) {
+        console.log(error);
+       }
+    },
+    async getApiCategory(){
+      try {
+       let res = await axios.get("http://autouz.pythonanywhere.com/categoriya/")
+       this.categories = res.data
+      } catch (error) {
+       console.log(error);
+      }
+   },
+  },
+
+  getters: {
+
+  },
+});
+
+
 
 export default store((/* { ssrContext } */) => {
   const pinia = createPinia()

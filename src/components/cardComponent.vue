@@ -1,9 +1,10 @@
 <template>
-    <div class="container page-wrapper">
+  <div class="container page-wrapper">
   <div class="page-inner">
-    {{store.cars}}
+
     <div class="row" >
-      <div class="el-wrapper" v-for="car in store.limited" :key="car.car_name" >
+
+      <div class="el-wrapper" v-for="car in store.cars" :key="car" >
         <div class="box-up">
           <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
           <div class="img-info">
@@ -28,34 +29,17 @@
           </a>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 </template>
 <script setup>
-import axios  from 'axios';
-import { ref, onMounted, onBeforeMount } from 'vue'
-import {useStore} from '../stores/index.js'
+import {useCounterStore} from 'src/stores/index'
+// import { ref,  onBeforeMount } from 'vue'
+const store = useCounterStore()
+store.getApi()
 
-const store = useStore()
-store.GET_CARS()
 
-// let cars = ref([])
-// onBeforeMount(() => {
-// })
-// let getCars = async ()=>{
-//   try{
-//     let res = await axios.get('http://autouz.pythonanywhere.com/productlar/')
-//     cars.value = res.data
-//     if(cars.value.length > 6) return cars.value.length = 6
-
-//   }
-//   catch(err){
-//     console.log(err);
-//   }
-  
-// }
 </script>
 
 
