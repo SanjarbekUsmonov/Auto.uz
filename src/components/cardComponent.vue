@@ -3,32 +3,38 @@
   <div class="page-inner">
 
     <div class="row" >
-
-      <div class="el-wrapper" v-for="car in store.limit" :key="car" >
-        <div class="box-up">
-          <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
-          <div class="img-info">
-            <div class="info-inner">
-              <span class="p-name">{{car.car_name}}</span>
-              <span class="p-company">{{car.motor}}</span>
+      <q-intersection
+        v-for="car in store.cars"
+        :key="car.car_name"
+        transition="scale"
+        class="example-item "
+        >
+        <div class="el-wrapper"  >
+          <div class="box-up">
+            <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
+            <div class="img-info">
+              <div class="info-inner">
+                <span class="p-name">{{car.car_name}}</span>
+                <span class="p-company">{{car.car_name}}</span>
+              </div>
+              <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
             </div>
-            <div class="a-size">Year of manufacture : <span class="size">{{ car.year_of_manufacture }}</span></div>
-          </div>
-        </div>
-
-        <div class="box-down">
-          <div class="h-bg">
-            <div class="h-bg-inner"></div>
           </div>
 
-          <a class="cart" href="#">
-            <span class="price">${{car.price}}</span>
-            <span class="add-to-cart">
-              <span class="txt">Add in cart</span>
-            </span>
-          </a>
+          <div class="box-down">
+            <div class="h-bg">
+              <div class="h-bg-inner"></div>
+            </div>
+
+            <a class="cart" href="#">
+              <span class="price">$120</span>
+              <span class="add-to-cart">
+                <span class="txt">Add in cart</span>
+              </span>
+            </a>
+          </div>
         </div>
-      </div>
+      </q-intersection>
     </div>
   </div>
 </div>
@@ -45,26 +51,10 @@ store.getApi()
 
 <style scoped>
 
-.d-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.align-center {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.flex-centerY-centerX {
-  justify-content: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+.example-item{
+  width: 360px;
+  height: 400px;
+  margin: 15px auto;
 }
 
 
@@ -314,5 +304,16 @@ store.getApi()
   text-transform: uppercase;
   white-space: nowrap;
 }
+@media screen and (max-width:360px) {
+  .example-item{
+    width: 300px;
+    height: 400px;
+    margin: 0px auto;
+  }
+  .el-wrapper {
+    width: 300px;
+    margin: 0px auto;
 
+  }
+}
 </style>
