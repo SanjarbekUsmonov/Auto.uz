@@ -119,25 +119,10 @@
 
 <script setup>
 import { useCounterStore } from "src/stores/index";
+import {ref} from 'vue'
 const store = useCounterStore();
 store.getApi();
-
-// import axios from "axios";
-// import { ref,onBeforeMount } from "vue";
-// const slide = ref(1);
-// const cars = ref([]);
-// onBeforeMount(function(){
-//   getCars()
-// })
-// let getCars = async function(){
-//   try{
-//     let res = await axios. get('http://autouz.pythonanywhere.com/productlar/')
-//     cars.value = res.data
-//   }
-//   catch(err){
-//     console.log(err + 'xato bor');
-//   }
-// }
+const slide = ref(1)
 </script>
 
 <style lang="css" scoped>
