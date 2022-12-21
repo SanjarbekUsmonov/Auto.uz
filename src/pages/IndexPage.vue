@@ -1,22 +1,22 @@
 <template>
   <div>
-     <CompCarSimiller/>
-     <CompCarusel/>
-     <CompAutoMake/>
-     <CompNameCar/>
-     <CompCarChoices/>
+
+     <caruselCar/>
+     <carImgMarka/>
+     <carMarka/>
+     <carProducts/>
   </div>
 </template>
 
 
 <script>
-import CompCarSimiller from 'src/components/CompCarSimiller.vue'
-import CompCarusel from 'src/components/CompCarusel.vue'
-import CompAutoMake from 'src/components/CompAutoMake.vue'
-import CompNameCar from 'src/components/CompNameCar.vue'
-import CompCarChoices from 'src/components/CompCarChoices.vue'
+
+import caruselCar from 'src/components/caruselCar.vue'
+import carImgMarka from 'src/components/carImgMarka.vue'
+import carMarka from 'src/components/carMarka.vue'
+import carProducts from 'src/components/carProducts.vue'
   export default {
-  components: { CompCarSimiller, CompCarusel, CompAutoMake, CompNameCar,CompCarChoices },
+  components: { caruselCar, carImgMarka, carMarka,carProducts },
 
   }
 </script>

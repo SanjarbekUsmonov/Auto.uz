@@ -1,24 +1,22 @@
 <template>
   <div>
-      <CompCarSimiller/>
       <div class="container">
           <div class="content">
-            <CompCarTobuy/>
+            <filterCar/>
             <div class="mt-50px">
               <CarCard/>
             </div>
           </div>
-          
+
       </div>
   </div>
 </template>
 
 <script setup>
-import CompCarSimiller from 'src/components/CompCarSimiller.vue';
-import CompCarTobuy from '../components/car-market/CompCarTobuy.vue';
+import filterCar from '../components/car-market/filterCar.vue';
 import CarCard from 'src/components/car-market/CarCard.vue';
 
-  
+
 </script>
 
 <style  scoped>
