@@ -1,5 +1,5 @@
 <template>
-    <div class = "card-wrapper">
+<div class = "card-wrapper">
   <div class = "card">
     <!-- card left -->
     <div class="q-pa-md">

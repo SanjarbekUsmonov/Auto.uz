@@ -1,10 +1,10 @@
 <template>
   <div class="container page-wrapper">
   <div class="page-inner">
-    {{store.cars}}
+
     <div class="row" >
 
-      <div class="el-wrapper" v-for="car in store.limited" :key="car.car_name" >
+      <div class="el-wrapper" v-for="car in store.cars" :key="car" >
         <div class="box-up">
           <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
           <div class="img-info">

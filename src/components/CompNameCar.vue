@@ -5,7 +5,7 @@
         <!-- car name boshlanishi -->
         <div class="content__car__much w-100pr row justify-betwen" >
           <div class="w-19pr text-center mt-5px" v-for="category , i in store.categories" :key="i">
-            {{ category.category_name }} <span class=" text-grey"> {{ category.mahsulot.length }} </span>
+            {{ category.category_name }} <span class=" text-grey">{{ category.mahsulot.length }}</span>
           </div>
         </div>
          <!-- car name tugashi -->
