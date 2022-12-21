@@ -3,14 +3,21 @@
   <div class="page-inner">
 
     <div class="row" >
-
-      <div class="el-wrapper" v-for="car in store.cars" :key="car" >
-        <div class="box-up">
-          <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
-          <div class="img-info">
-            <div class="info-inner">
-              <span class="p-name">{{car.car_name}}</span>
-              <span class="p-company">{{car.car_name}}</span>
+      <q-intersection
+        v-for="car in store.cars"
+        :key="car.car_name"
+        transition="scale"
+        class="example-item "
+        >
+        <div class="el-wrapper"  >
+          <div class="box-up">
+            <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
+            <div class="img-info">
+              <div class="info-inner">
+                <span class="p-name">{{car.car_name}}</span>
+                <span class="p-company">{{car.car_name}}</span>
+              </div>
+              <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
             </div>
           </div>
 
@@ -27,7 +34,7 @@
             </a>
           </div>
         </div>
-      </div>
+      </q-intersection>
     </div>
   </div>
 </div>
@@ -297,5 +304,16 @@ store.getApi()
   text-transform: uppercase;
   white-space: nowrap;
 }
+@media screen and (max-width:360px) {
+  .example-item{
+    width: 300px;
+    height: 400px;
+    margin: 0px auto;
+  }
+  .el-wrapper {
+    width: 300px;
+    margin: 0px auto;
 
+  }
+}
 </style>
