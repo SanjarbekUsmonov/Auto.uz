@@ -1,22 +1,16 @@
 <template>
-    <div class="container page-wrapper">
+  <div class="container page-wrapper">
   <div class="page-inner">
+
     <div class="row" >
-      <q-intersection
-        v-for="car in 21" 
-        :key="car.car_name"
-        transition="scale"
-        class="example-item "      
-        >  
-        <div class="el-wrapper"  >
-          <div class="box-up">
-            <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
-            <div class="img-info">
-              <div class="info-inner">
-                <span class="p-name">{{car.car_name}}</span>
-                <span class="p-company">{{car.car_name}}</span>
-              </div>
-              <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
+
+      <div class="el-wrapper" v-for="car in store.cars" :key="car" >
+        <div class="box-up">
+          <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name">{{car.car_name}}</span>
+              <span class="p-company">{{car.car_name}}</span>
             </div>
           </div>
 
@@ -33,27 +27,18 @@
             </a>
           </div>
         </div>
-      </q-intersection>
+      </div>
     </div>
   </div>
 </div>
 </template>
 <script setup>
-import axios  from 'axios';
-import { ref, onMounted, onBeforeMount } from 'vue'
-let cars = ref([])
-onBeforeMount(() => {
-  getCars()
-})
-let getCars = async ()=>{
-  try{
-    let res = await axios.get('http://autouz.pythonanywhere.com/productlar/')
-    cars.value = res.data
-  }
-  catch(err){
-    console.log(err);
-  }
-}
+import {useCounterStore} from 'src/stores/index'
+// import { ref,  onBeforeMount } from 'vue'
+const store = useCounterStore()
+store.getApi()
+
+
 </script>
 
 
@@ -312,16 +297,5 @@ let getCars = async ()=>{
   text-transform: uppercase;
   white-space: nowrap;
 }
-@media screen and (max-width:360px) {
-  .example-item{
-    width: 300px;
-    height: 400px;
-    margin: 0px auto;
-  }
-  .el-wrapper {
-    width: 300px;
-    margin: 0px auto;
-   
-  }
-}
+
 </style>

@@ -1,15 +1,40 @@
 import { store } from 'quasar/wrappers'
 import { createPinia } from 'pinia'
-// import { us } from "module";
-/*
- * If not building with SSR mode, you can
+import { defineStore } from 'pinia';
+import axios from 'axios';
 
- * directly export the Store instantiation;
- *
- * The function below can be async too; either use
- * async/await or return a Promise which resolves
- * with the Store instance.
- */
+export const useCounterStore = defineStore('counter', {
+  state: () => ({
+    cars: [],
+    categories: [],
+  }),
+
+
+  actions: {
+    async getApi(){
+       try {
+        let res = await axios.get("http://autouz.pythonanywhere.com/productlar/")
+        this.cars = res.data
+       } catch (error) {
+        console.log(error);
+       }
+    },
+    async getApiCategory(){
+      try {
+       let res = await axios.get("http://autouz.pythonanywhere.com/categoriya/")
+       this.categories = res.data
+      } catch (error) {
+       console.log(error);
+      }
+   },
+  },
+
+  getters: {
+
+  },
+});
+
+
 
 export default store((/* { ssrContext } */) => {
   const pinia = createPinia()
