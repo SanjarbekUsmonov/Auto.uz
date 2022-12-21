@@ -1,13 +1,13 @@
 <template >
-  <div v-for="cars in 5" :key="cars" class="q-mt-md">
+  <div v-for="car in store.cars" :key="car" class="q-mt-md">
     <div class="p-15px card-car">
       <div class="w-30pr car__carusel">
         <div class="car__title-tel">
           <div class="w-100pr fs-16px">
-            <div class="car__name">Infiniti Q30 , 2017</div>
+            <div class="car__name">{{car.car_name}}</div>
             <div class="row justify-between mb-10px">
-              <div class="car__prince">2 050 000 ₽</div>
-              <div>40 000 KM</div>
+              <div class="car__prince">{{car.price}} ₽</div>
+              <div>{{car.mileage}}KM</div>
             </div>
           </div>
         </div>
@@ -37,18 +37,18 @@
       </div>
       <div class="w-60pr row car__info pl-10px">
         <div class="row w-100pr fs-16px car__title-komp">
-          <div class="w-33pr car__name">Infiniti Q30 , 2017</div>
-          <div class="w-33pr"><span class="car__prince">2 050 000 ₽</span></div>
-          <div class="w-33pr">40 000 KM</div>
+          <div class="w-33pr car__name">{{ car.car_name }}</div>
+          <div class="w-33pr"><span class="car__prince">{{car.price}} ₽</span></div>
+          <div class="w-33pr">{{ car.mileage }} KM</div>
         </div>
         <div class="w-33pr text-grey car__info-info">
-          <div>2.0 L /211 L.S/Benzin</div>
-          <div>Robot</div>
-          <div>Xetchbek 5 DV.</div>
+          <div>{{ car.motor }}</div>
+          <div>{{car.transmission}}</div>
+          <div>{{ car.body }}</div>
         </div>
         <div class="w-33pr text-grey">
-          <div>Ploxoy</div>
-          <div>Beliy</div>
+          <div>{{ car.condition }}</div>
+          <div>{{ car.color }}</div>
         </div>
         <div class="w-33pr car__verified">
           <div class="fs-16px text-green">
@@ -60,13 +60,13 @@
         <div class="w-100pr">
           <div>
             <span class="p-5px bg-grey-3 text-blue-7 br-5px fs-12px">
-              Maximum - avotaojsk goda
+              {{car.author_name}}
             </span>
           </div>
 
           <div class="mt-10px car__owner">
             <div class="m-5px row justify-between items-center">
-              <div class="w-50pr">Mullajonov Alimardon</div>
+              <div class="w-50pr">{{car.author_name}}</div>
               <div>
                 <q-btn class="bg-green text-white" padding="5px 10px">
                   Qo'ng'iroq
@@ -78,7 +78,7 @@
           <div class="mt-10px row justify-between">
             <div>
               <q-icon name="verified" color="green" size="22px" class="comp" />
-              Fergana
+              {{car.city}}
             </div>
             <div>
               <q-icon name="favorite_border" size="22px" class="comp" />
@@ -119,8 +119,12 @@
 
 <script setup>
 import { useCounterStore } from "src/stores/index";
+import{ref} from 'vue'
+
+const slide = ref(1)
 const store = useCounterStore();
 store.getApi();
+
 
 // import axios from "axios";
 // import { ref,onBeforeMount } from "vue";

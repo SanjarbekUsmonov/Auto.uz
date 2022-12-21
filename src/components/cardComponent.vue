@@ -4,15 +4,15 @@
 
     <div class="row" >
 
-      <div class="el-wrapper" v-for="car in store.cars" :key="car" >
+      <div class="el-wrapper" v-for="car in store.limit" :key="car" >
         <div class="box-up">
           <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
           <div class="img-info">
             <div class="info-inner">
               <span class="p-name">{{car.car_name}}</span>
-              <span class="p-company">{{car.car_name}}</span>
+              <span class="p-company">{{car.motor}}</span>
             </div>
-            <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
+            <div class="a-size">Year of manufacture : <span class="size">{{ car.year_of_manufacture }}</span></div>
           </div>
         </div>
 
@@ -22,7 +22,7 @@
           </div>
 
           <a class="cart" href="#">
-            <span class="price">$120</span>
+            <span class="price">${{car.price}}</span>
             <span class="add-to-cart">
               <span class="txt">Add in cart</span>
             </span>

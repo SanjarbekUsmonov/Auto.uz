@@ -32,17 +32,11 @@
   </div>
 </template>
 
-<script>
-import { ref } from "vue";
 
-export default {
-  setup() {
-    return {
-      slide: ref(1),
-      autoplay: ref(true),
-    };
-  },
-};
+<script setup>
+import {ref} from 'vue'
+  let slide = ref(1)
+  let autoplay = ref(true)
 </script>
 
 <style lang="scss" scoped>

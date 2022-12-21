@@ -7,6 +7,7 @@ export const useCounterStore = defineStore('counter', {
   state: () => ({
     cars: [],
     categories: [],
+    limit: []
   }),
 
 
@@ -15,6 +16,9 @@ export const useCounterStore = defineStore('counter', {
        try {
         let res = await axios.get("http://autouz.pythonanywhere.com/productlar/")
         this.cars = res.data
+        this.limit = [...this.cars]
+        this.cars.length >= 6 ? this.limit.length = 6 : this.limit
+        console.log(this.limit);
        } catch (error) {
         console.log(error);
        }

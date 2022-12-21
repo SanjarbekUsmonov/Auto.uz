@@ -4,7 +4,10 @@
      <CompCarusel/>
      <CompAutoMake/>
      <CompNameCar/>
-     <CompCarChoices/>
+     <Suspense>
+      <CompCarChoices/>
+     </Suspense>
+     
   </div>
 </template>
 

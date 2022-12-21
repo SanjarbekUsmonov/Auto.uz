@@ -8,7 +8,7 @@
             <q-select standout="bg-teal text-white" v-model="model" :options="options" label="Custom standout" />
           </div>
           <div class="select" style="width: 270px">
-            <q-select standout="bg-teal text-white" v-model="model" :options="options" label="Custom standout" />
+            <q-select standout="bg-teal text-white" v-model="model2" :options="options" label="Custom standout" />
           </div>
           <div class="select" style="width: 270px">
             <q-select standout="bg-teal text-white" v-model="model" :options="options" label="Custom standout" />
@@ -35,19 +35,15 @@
   </div>
 </template>
 
-<script>
- import { ref } from 'vue'
+<script setup>
+ import { ref, watch } from 'vue'
+ const  model = ref(null)
+ const  model2 = ref(null)
+    const  options = ['Google', 'Facebook', 'Twitter', 'Apple', 'Oracle']
 
- export default {
-  setup () {
-    return {
-      model: ref(null),
-      options: [
-        'Google', 'Facebook', 'Twitter', 'Apple', 'Oracle'
-      ]
-    }
-  }
-}
+    watch(model,()=>{
+      console.log(model.value);
+    })
 </script>
 
 <style scoped>
