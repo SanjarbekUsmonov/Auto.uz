@@ -4,12 +4,12 @@
       v-for="index in 60"
       :key="index"
       transition="scale"
-      class="example-item"      
-      >       
-      
+      class="example-item"
+      >
+
       <div class=" p-15px card-car">
         <div class="w-30pr car__carusel">
-          <div class="car__title-tel"> 
+          <div class="car__title-tel">
               <div class="w-100pr fs-16px">
                   <div class=" car__name">Infiniti Q30 , 2017</div>
                   <div class="row justify-between mb-10px">
@@ -160,7 +160,7 @@ const slide = ref(1);
     .example-item{
         width: 100%;
         height: 520px;
-         
+
     }
     .card-car:hover {
         box-shadow: none ;
