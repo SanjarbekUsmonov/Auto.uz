@@ -1,6 +1,5 @@
 import { store } from 'quasar/wrappers'
-import { createPinia } from 'pinia'
-import { defineStore } from 'pinia';
+import { createPinia,defineStore } from 'pinia'
 import axios from 'axios';
 
 export const useCounterStore = defineStore('counter', {
@@ -34,7 +33,7 @@ export const useCounterStore = defineStore('counter', {
   },
 
   getters: {
-
+    
   },
 });
 
