@@ -1,6 +1,5 @@
 <template>
   <div>
-
      <caruselCar/>
      <carImgMarka/>
      <carMarka/>

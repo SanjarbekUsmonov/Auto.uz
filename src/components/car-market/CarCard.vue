@@ -1,8 +1,8 @@
 <template >
   <div>
     <q-intersection
-      v-for="index in 60"
-      :key="index"
+      v-for="car in store.cars"
+      :key="car"
       transition="scale"
       class="example-item"
       >
@@ -11,10 +11,10 @@
         <div class="w-30pr car__carusel">
           <div class="car__title-tel">
               <div class="w-100pr fs-16px">
-                  <div class=" car__name">Infiniti Q30 , 2017</div>
+                  <div class=" car__name">{{ car.car_name }}</div>
                   <div class="row justify-between mb-10px">
-                      <div class="car__prince" >2 050 000 ₽</div>
-                      <div >40 000 KM</div>
+                      <div class="car__prince" >{{ car.price }}</div>
+                      <div >{{ car.mileage }}</div>
                   </div>
               </div>
           </div>
@@ -38,24 +38,24 @@
         </div>
         <div class="w-60pr row car__info pl-10px">
           <div class="row w-100pr fs-16px car__title-komp">
-            <div class="w-33pr car__name">Infiniti Q30 , 2017</div>
-            <div class="w-33pr "><span class="car__prince">2 050 000 ₽</span></div>
-            <div class="w-33pr">40 000 KM</div>
+            <div class="w-33pr car__name">{{ car.car_name }}</div>
+            <div class="w-33pr "><span class="car__prince">{{ car.price }} $</span></div>
+            <div class="w-33pr">{{ car.mileage }} km </div>
           </div>
           <div class="w-33pr text-grey car__info-info">
-            <div>2.0 L /211 L.S/Benzin</div>
-            <div>Robot</div>
-            <div>Xetchbek 5 DV.</div>
+            <div>{{ car.motor }}</div>
+            <div>{{ car.transmission }}</div>
+            <div>{{ car.body }}</div>
           </div>
           <div class="w-33pr text-grey">
-            <div>Ploxoy</div>
-            <div>Beliy</div>
+            <div>{{ car.condition }}</div>
+            <div>{{ car.color }}</div>
           </div>
           <div class="w-33pr car__verified ">
             <div class="fs-16px text-green">
-              <q-icon name="verified" color="green" size="28px" /> Проверенный    дилер
+              {{ car.year_of_manufacture }} yil
             </div>
-            <div class="text-blue-7 mt-5px">U bir narsa +</div>
+            <div class="text-blue-7 mt-5px">Number {{ car.author_number }}</div>
           </div>
           <div class="w-100pr">
             <div>
@@ -67,17 +67,17 @@
             <div class=" mt-10px car__owner">
               <div class="m-5px row justify-between items-center">
                   <div class="w-50pr">
-                      Mullajonov  Alimardon
+                      {{ car.author_name }}
                   </div>
                   <div>
-                      <q-btn class="bg-green text-white" padding="5px 10px"> Qo'ng'iroq </q-btn>
+                      <q-btn class="bg-green text-white" padding="5px 10px"> {{ car.author_number }} </q-btn>
                   </div>
               </div>
             </div>
 
             <div class="mt-10px row justify-between">
               <div>
-                  <q-icon name="verified" color="green" size="22px" class=" comp " />Fergana
+                  <q-icon name="verified" color="green" size="22px" class=" comp " />{{ car.city }}
               </div>
               <div>
                   <q-icon name="favorite_border"  size="22px" class=" comp " />
