@@ -19,59 +19,36 @@
     <!-- card right -->
     <div class = "product-content">
       <h2 class = "product-title">{{ car.car_name }}</h2>
-      <a href = "#" class = "product-link">visit nike store</a>
-      <div class = "product-rating">
-        <i class = "fas fa-star"></i>
-        <i class = "fas fa-star"></i>
-        <i class = "fas fa-star"></i>
-        <i class = "fas fa-star"></i>
-        <i class = "fas fa-star-half-alt"></i>
-        <span>4.7(21)</span>
-      </div>
+      <a href = "#" class = "product-link"><b>Price:</b>  {{ car.price }} $</a>
 
       <div class = "product-price">
-        <p class = "last-price">Old Price: <span>$257.00</span></p>
-        <p class = "new-price">New Price: <span>$249.00 (5%)</span></p>
+        <p class = "last-price">Name: <span> {{ car.author_name }}</span></p>
+        <p class = "new-price">Number: <span>{{ car.author_number }}</span></p>
       </div>
 
       <div class = "product-detail">
-        <h3>about this item: </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
+        <h3>Seller's comment</h3>
+        <p>{{ car.car_equipment }} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae laboriosam temporibus iste, ratione molestiae quas expedita explicabo laborum facere aut.</p>
+        <p>{{ car.car_equipment }}</p>
         <ul>
-          <li>Color: <span>Black</span></li>
-          <li>Available: <span>in stock</span></li>
-          <li>Category: <span>Shoes</span></li>
-          <li>Shipping Area: <span>All over the world</span></li>
-          <li>Shipping Fee: <span>Free</span></li>
+          <li>Color: <span>{{ car.color }}</span></li>
+          <li>Mileage: <span>{{ car.mileage }} km</span></li>
+          <li>Body <span>{{ car.body }}</span></li>
+          <li>Transmission: <span>{{ car.transmission }}</span></li>
+          <li>Motor: <span>{{ car.motor }}</span></li>
+          <li>Year: <span>{{ car.year_of_manufacture }}</span></li>
         </ul>
       </div>
 
       <div class = "purchase-info">
-        <input type = "number" min = "0" value = "1">
         <button type = "button" class = "btn">
-          Add to Cart <i class = "fas fa-shopping-cart"></i>
+          Get in touch
         </button>
         <button type = "button" class = "btn">Compare</button>
       </div>
 
-      <div class = "social-links">
-        <p>Share At: </p>
-        <a href = "#">
-          <i class = "fab fa-facebook-f"></i>
-        </a>
-        <a href = "#">
-          <i class = "fab fa-twitter"></i>
-        </a>
-        <a href = "#">
-          <i class = "fab fa-instagram"></i>
-        </a>
-        <a href = "#">
-          <i class = "fab fa-whatsapp"></i>
-        </a>
-        <a href = "#">
-          <i class = "fab fa-pinterest"></i>
-        </a>
+      <div class = "social-links row">
+        <b class="q-mr-sm">Manzil:</b> <span style="font-weight: 450;"> {{ car.city }}</span>
       </div>
     </div>
   </div>
@@ -79,20 +56,21 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import { useCounterStore } from "src/stores/index";
 import { useRoute } from 'vue-router';
+import { useCounterStore } from "src/stores/index";
 import axios from 'axios';
 const store = useCounterStore();
 store.getApi();
 const slide = ref(1)
 const id = useRoute().params.id
 const car = ref({})
-let getApiCarForId = async() =>{
-  const car_api = await axios.get('http://autouz.pythonanywhere.com/productlar/'+id+'/')
-  console.log(car_api.data);
-  car.value = car_api.data
+let  getApiCarForId = async()=>{
+  const car_api = await axios.get('http://autouz.pythonanywhere.com/productlar/'+id+ '/')
+  console.log(car_api.data)
+  car.value  = car_api.data
 }
 getApiCarForId()
+
 </script>
 <style scoped>
 
@@ -151,9 +129,8 @@ img{
 }
 .product-link{
     text-decoration: none;
-    text-transform: uppercase;
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: 20px;
     display: inline-block;
     margin-bottom: 0.5rem;
     background: #256eff;
@@ -180,8 +157,8 @@ img{
     font-weight: 400;
 }
 .last-price span{
-    color: #f64749;
-    text-decoration: line-through;
+  font-weight: 500;
+  /* sasaks */
 }
 .new-price span{
     color: #256eff;
@@ -234,36 +211,13 @@ img{
     color: #fff;
 }
 .purchase-info .btn:first-of-type{
-    background: #256eff;
+    background: rgb(2, 177, 2);
 }
 .purchase-info .btn:last-of-type{
     background: #f64749;
 }
 .purchase-info .btn:hover{
     opacity: 0.9;
-}
-.social-links{
-    display: flex;
-    align-items: center;
-}
-.social-links a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    color: #000;
-    border: 1px solid #000;
-    margin: 0 0.2rem;
-    border-radius: 50%;
-    text-decoration: none;
-    font-size: 0.8rem;
-    transition: all 0.5s ease;
-}
-.social-links a:hover{
-    background: #000;
-    border-color: transparent;
-    color: #fff;
 }
 
 @media screen and (min-width: 992px){

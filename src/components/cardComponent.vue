@@ -16,9 +16,9 @@
             <div class="img-info">
               <div class="info-inner">
                 <span class="p-name">{{car.car_name}}</span>
-                <span class="p-company">{{car.car_name}}</span>
+                <span class="p-company">{{ car.year_of_manufacture }}</span>
               </div>
-              <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
+              <div class="a-size">{{ car.transmission }} <span class="size">{{ car.condition }}</span></div>
             </div>
           </div>
 
@@ -28,7 +28,7 @@
             </div>
 
             <a class="cart" href="#">
-              <span class="price">$120</span>
+              <span class="price">{{ car.price }} $</span>
               <span class="add-to-cart">
                 <span class="txt">Add in cart</span>
               </span>
@@ -42,9 +42,10 @@
 </div>
 </template>
 <script setup>
-import {useCounterStore} from 'src/stores/index'
+import {useCounterStore} from 'src/stores/index';
 const store = useCounterStore()
 store.getApi()
+
 
 
 </script>
