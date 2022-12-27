@@ -36,55 +36,57 @@
             </q-carousel>
           </div>
         </div>
-        <div class="w-60pr row car__info pl-10px">
-          <div class="row w-100pr fs-16px car__title-komp">
-            <div class="w-33pr car__name">{{ car.car_name }}</div>
-            <div class="w-33pr "><span class="car__prince">{{ car.price }} $</span></div>
-            <div class="w-33pr">{{ car.mileage }} km </div>
-          </div>
-          <div class="w-33pr text-grey car__info-info">
-            <div>{{ car.motor }}</div>
-            <div>{{ car.transmission }}</div>
-            <div>{{ car.body }}</div>
-          </div>
-          <div class="w-33pr text-grey">
-            <div>{{ car.condition }}</div>
-            <div>{{ car.color }}</div>
-          </div>
-          <div class="w-33pr car__verified ">
-            <div class="fs-16px text-green">
-              {{ car.year_of_manufacture }} yil
+        <router-link :to="'/detail/'+car.id" class="w-60pr row  ">
+          <div class="w-100pr row car__info pl-10px">
+            <div class="row w-100pr fs-16px car__title-komp">
+              <div class="w-33pr car__name">{{ car.car_name }}</div>
+              <div class="w-33pr "><span class="car__prince">{{ car.price }} $</span></div>
+              <div class="w-33pr">{{ car.mileage }} km </div>
             </div>
-            <div class="text-blue-7 mt-5px">Number {{ car.author_number }}</div>
-          </div>
-          <div class="w-100pr">
-            <div>
-              <span class="p-5px bg-grey-3 text-blue-7 br-5px fs-12px">
-                Maximum - avotaojsk goda
-              </span>
+            <div class="w-33pr text-grey car__info-info">
+              <div>{{ car.motor }}</div>
+              <div>{{ car.transmission }}</div>
+              <div>{{ car.body }}</div>
             </div>
-
-            <div class=" mt-10px car__owner">
-              <div class="m-5px row justify-between items-center">
-                  <div class="w-50pr">
-                      {{ car.author_name }}
-                  </div>
-                  <div>
-                      <q-btn class="bg-green text-white" padding="5px 10px"> {{ car.author_number }} </q-btn>
-                  </div>
+            <div class="w-33pr text-grey">
+              <div>{{ car.condition }}</div>
+              <div>{{ car.color }}</div>
+            </div>
+            <div class="w-33pr car__verified ">
+              <div class="fs-16px text-green">
+                {{ car.year_of_manufacture }} yil
               </div>
+              <div class="text-blue-7 mt-5px">Number {{ car.author_number }}</div>
             </div>
-
-            <div class="mt-10px row justify-between">
+            <div class="w-100pr">
               <div>
-                  <q-icon name="verified" color="green" size="22px" class=" comp " />{{ car.city }}
+                <span class="p-5px bg-grey-3 text-blue-7 br-5px fs-12px">
+                  Maximum - avotaojsk goda
+                </span>
               </div>
-              <div>
-                  <q-icon name="favorite_border"  size="22px" class=" comp " />
+
+              <div class=" mt-10px car__owner">
+                <div class="m-5px row justify-between items-center">
+                    <div class="w-50pr">
+                        {{ car.author_name }}
+                    </div>
+                    <div>
+                        <q-btn class="bg-green text-white" padding="5px 10px"> {{ car.author_number }} </q-btn>
+                    </div>
+                </div>
+              </div>
+
+              <div class="mt-10px row justify-between">
+                <div>
+                    <q-icon name="verified" color="green" size="22px" class=" comp " />{{ car.city }}
+                </div>
+                <div>
+                    <q-icon name="favorite_border"  size="22px" class=" comp " />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </router-link>
         <div class="w-30px car__icons-chect"></div>
         <div class="w-30px h-120px br-5px car__icons" style="border: 1px solid grey">
           <div class="row justify-center h-25pr items-center" style="border-bottom: 1px solid grey" >
@@ -115,6 +117,10 @@ const slide = ref(1)
 </script>
 
 <style lang="css" scoped>
+a{
+  text-decoration: none;
+  color: black;
+}
 .example-item{
   width: 100%;
   height: 250px;

@@ -9,7 +9,8 @@
         transition="scale"
         class="example-item "
         >
-        <div class="el-wrapper"  >
+        <router-link :to="'/detail/'+car.id">
+          <div class="el-wrapper"  >
           <div class="box-up">
             <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
             <div class="img-info">
@@ -34,6 +35,7 @@
             </a>
           </div>
         </div>
+        </router-link>
       </q-intersection>
     </div>
   </div>
@@ -41,7 +43,6 @@
 </template>
 <script setup>
 import {useCounterStore} from 'src/stores/index'
-// import { ref,  onBeforeMount } from 'vue'
 const store = useCounterStore()
 store.getApi()
 

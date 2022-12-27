@@ -18,7 +18,7 @@
   </div>
     <!-- card right -->
     <div class = "product-content">
-      <h2 class = "product-title">nike shoes</h2>
+      <h2 class = "product-title">{{ car.car_name }}</h2>
       <a href = "#" class = "product-link">visit nike store</a>
       <div class = "product-rating">
         <i class = "fas fa-star"></i>
@@ -77,16 +77,22 @@
   </div>
 </div>
 </template>
-<script>
+<script setup>
 import { ref } from 'vue'
-
-export default {
-  setup () {
-    return {
-      slide: ref(1)
-    }
-  }
+import { useCounterStore } from "src/stores/index";
+import { useRoute } from 'vue-router';
+import axios from 'axios';
+const store = useCounterStore();
+store.getApi();
+const slide = ref(1)
+const id = useRoute().params.id
+const car = ref({})
+let getApiCarForId = async() =>{
+  const car_api = await axios.get('http://autouz.pythonanywhere.com/productlar/'+id+'/')
+  console.log(car_api.data);
+  car.value = car_api.data
 }
+getApiCarForId()
 </script>
 <style scoped>
 
