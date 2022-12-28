@@ -86,6 +86,7 @@
               </div>
             </div>
           </div>
+
         </router-link>
         <div class="w-30px car__icons-chect"></div>
         <div class="w-30px h-120px br-5px car__icons" style="border: 1px solid grey">
@@ -109,11 +110,29 @@
 
 <script setup>
 import { useCounterStore } from "src/stores/index";
-import {ref} from 'vue'
+import{ref} from 'vue'
+
+const slide = ref(1)
 const store = useCounterStore();
 store.getApi();
-const slide = ref(1)
 
+
+// import axios from "axios";
+// import { ref,onBeforeMount } from "vue";
+// const slide = ref(1);
+// const cars = ref([]);
+// onBeforeMount(function(){
+//   getCars()
+// })
+// let getCars = async function(){
+//   try{
+//     let res = await axios. get('http://autouz.pythonanywhere.com/productlar/')
+//     cars.value = res.data
+//   }
+//   catch(err){
+//     console.log(err + 'xato bor');
+//   }
+// }
 </script>
 
 <style lang="css" scoped>
