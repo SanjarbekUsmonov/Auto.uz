@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="q-px-xl">
     <!-- text boshlanishi sarlavha -->
     <div class="text row  items-end bg-white">
        <div>
@@ -15,12 +15,12 @@
 
      <!-- markalar boshlanishi -->
     <div class="container q-mt-lg q-gutter-md  row justify-between">
-        <div class="make bg-grey-3 row  shadow-10 justify-center" v-for="i in 10" :key="i">
+        <div class="make bg-grey-3 row  shadow-10 justify-center" v-for="carImg in carImgs" :key="carImg">
             <div class="make__img">
-              <q-img src="https://images.satu.kz/68605191_w640_h640_mersedes-slk-klass.jpg" alt=""/>
+              <q-img :src= carImg.img  alt=""/>
             </div>
             <div class="make__title">
-              <b>Mersedes</b>
+              <b>{{ carImg.marka }}</b>
             </div>
         </div>
     </div>
@@ -30,7 +30,28 @@
 
 <script>
   export default {
-
+      data() {
+        return {
+          carImgs:[
+            {
+              img:"https://images.satu.kz/68605191_w640_h640_mersedes-slk-klass.jpg",
+              marka:"Mersedes"
+            },
+            {
+              img:"https://images.satu.kz/68605191_w640_h640_mersedes-slk-klass.jpg",
+              marka:"Mersedes"
+            },
+            {
+              img:"https://images.satu.kz/68605191_w640_h640_mersedes-slk-klass.jpg",
+              marka:"Mersedes"
+            },
+            {
+              img:"https://images.satu.kz/68605191_w640_h640_mersedes-slk-klass.jpg",
+              marka:"Mersedes"
+            },
+          ]
+        }
+      },
   }
 </script>
 

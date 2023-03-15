@@ -1,6 +1,8 @@
 <template>
   <div>
-     <caruselCar/>
+     <div>
+      <caruselCar/>
+     </div>
      <carImgMarka/>
      <carMarka/>
      <carProducts/>

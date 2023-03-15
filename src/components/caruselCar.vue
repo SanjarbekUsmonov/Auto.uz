@@ -1,4 +1,97 @@
 <template>
+  <div class="q-px-xl q-pt-md">
+    <q-carousel
+      v-model="slide"
+      transition-prev="slide-right"
+      transition-next="slide-left"
+      :autoplay="autoplay"
+      animated
+      arrows
+      control-color="primary"
+      class="rounded-borders"
+    >
+      <q-carousel-slide name="style" class="column no-wrap flex-center"
+       img-src="https://cdn.quasar.dev/img/mountains.jpg"
+      >
+        <div class="q-mt-md text-center absolute-bottom custom-caption">
+          <h3>{{ lorem }}</h3>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide name="tv" class="column no-wrap flex-center"
+      img-src="https://cdn.quasar.dev/img/mountains.jpg"
+      >
+      <div class="q-mt-md text-center absolute-bottom custom-caption">
+          <h3>{{ lorem }}</h3>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide name="layers" class="column no-wrap flex-center"
+      img-src="https://cdn.quasar.dev/img/mountains.jpg"
+      >
+      <div class="q-mt-md text-center absolute-bottom custom-caption">
+          <h3>{{ lorem }}</h3>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide name="map" class="column no-wrap flex-center"
+       img-src="https://cdn.quasar.dev/img/mountains.jpg"
+      >
+      <div class="q-mt-md text-center absolute-bottom custom-caption">
+          <h3>{{ lorem }}</h3>
+        </div>
+      </q-carousel-slide>
+    </q-carousel>
+
+    <div class="row justify-center q-mt-md">
+      <q-btn-toggle
+        glossy
+        v-model="slide"
+        :options="[
+          { label: 1, value: 'style' },
+          { label: 2, value: 'tv' },
+          { label: 3, value: 'layers' },
+          { label: 4, value: 'map' }
+        ]"
+      />
+    </div>
+  </div>
+</template>
+
+<script>
+import { ref } from 'vue'
+
+export default {
+  setup () {
+    return {
+      slide: ref('style'),
+      lorem: 'Lorem ipsum dolor,',
+      slide: ref(1),
+      autoplay: ref(true)
+    }
+  }
+}
+</script>
+<style lang="css">
+h3{
+  color: aliceblue;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <template>
   <div>
     <div class="container">
         <div >
@@ -43,4 +136,4 @@ import {ref} from 'vue'
 .container {
   height: auto;
 }
-</style>
+</style> -->
